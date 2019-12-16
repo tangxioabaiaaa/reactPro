@@ -1,0 +1,16 @@
+.app-header{
+  .menu{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .user{
+    margin-left: 10px;
+  }
+  .logout{
+    margin-left: 10px;
+  }
+}
+
+.ant-menu-item .anticon, .ant-menu-submenu-title .anticon {
+  margin-right: 0;
+}
