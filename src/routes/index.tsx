@@ -3,6 +3,11 @@ import {Redirect} from 'react-router-dom'
 import {RouteConfig} from 'react-router-config'
 
 const routes: RouteConfig[] = [
+  //首页
+  {
+    path: '/home',
+    component: lazy(()=>import('../pages/common/home')),
+  },
   //数据统计
   {
     path: '/statistics/funds',
