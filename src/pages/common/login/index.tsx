@@ -1,33 +1,68 @@
-import React,{useRef} from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import React,{useRef, useState, useEffect} from 'react';
+import { Form, Icon, Input, Checkbox, message } from 'antd';
+
+import { useDispatch, useSelector } from 'react-redux'
+import {requestUserLogin} from '../../../store/models/user'
+
+import {useHistory} from 'react-router-dom'
+
 
 import './style.scss'
 
 
-
-
 const Login: React.FC<{}> = ()=>{
+  
+  // store操作
+  const dispath = useDispatch();
+  const userIsLogin = useSelector(state=>(state as any).getIn(["user","isLogin"]));
 
+  // 路由
+  const history = useHistory();
+
+  // 创建ref
   const usernameRef = useRef(null!);
   const psdRef = useRef(null!);
 
+  // 创建记住密码判定参数
+  const [record, setRecord] = useState(false);
 
+  // 路由跳转
+  useEffect(() => {
+    console.log(userIsLogin);
+    if(userIsLogin){
+      history.push('/home');
+    }
+  }, [userIsLogin])
+
+  // 记住密码的操作
+  useEffect(() => {
+
+    return () => {
+      const userName:string = (usernameRef as any).current.state.value;
+      const password:string = (psdRef as any).current.state.value;
+      if(record && userIsLogin){
+        localStorage.setItem('userInfo', JSON.stringify({userName,password}))
+      }
+    };
+  })
+
+  // 点击登录操作
   const handleAction = function handleAction(){
-    console.log((usernameRef as any).current.state.value);
-    console.log((psdRef as any).current.state.value);
     const userName:string = (usernameRef as any).current.state.value;
-    const password:string = (usernameRef as any).current.state.value;
+    const password:string = (psdRef as any).current.state.value;
     if(userName && password){
 
+      dispath(requestUserLogin(userName,password));
+
     }else{
-      
+      message.error('输入不能为空！')
     }
   }
+
   return (
     <div id="login">
       <div className="wrap">
         <div className="logo">
-
         </div>
         <Form className="login-form">
           <Form.Item>
@@ -47,15 +82,17 @@ const Login: React.FC<{}> = ()=>{
               />
           </Form.Item>
           <Form.Item>
-            <Checkbox>记住密码</Checkbox>
+            <Checkbox onChange={function(e){
+              setRecord(e.target.checked);
+            }}>记住密码</Checkbox>
             <span className="login-form-button" onClick={handleAction}>
               登录
             </span>
           </Form.Item>
         </Form>
         <div className="bottom">
-          <p>Copyright © www.AxureUX.com, All Rights Reserved.</p>
-          <p>助你快速打造友好美观的交互原型</p>
+          <p>Copyright © www.xiaosdjaslkjdksajd.com, All Rights Reserved.</p>
+          <p>安利撒大家来看撒娇的李克强文件旅客及其了记录卡撒就</p>
         </div>
       </div>
      
