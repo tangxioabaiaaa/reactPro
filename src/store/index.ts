@@ -2,9 +2,11 @@ import { createStore, compose, applyMiddleware } from 'redux'
 import {combineReducers} from 'redux-immutable'
 import thunk from 'redux-thunk'
 import user from './models/user'
+import home from './models/home'
 
 const reducer = combineReducers({
-  user
+  user,
+  home
 });
 
 

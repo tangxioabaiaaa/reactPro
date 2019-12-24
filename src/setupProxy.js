@@ -1,11 +1,10 @@
 const proxy = require('http-proxy-middleware');
 
 module.exports = function(app) {
-  
   app.use(
-    '/api',
+    '/manager/api',
     proxy({
-      target: 'http://localhost:9100',
+      target: 'http://10.20.152.70:5009',
       changeOrigin: true
     })
   );

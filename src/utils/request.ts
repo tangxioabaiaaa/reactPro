@@ -44,7 +44,6 @@ class HttpRequest{
   private interceptor(instance: AxiosInstance){
     // 拦截请求
     instance.interceptors.request.use((config: AxiosRequestConfig)=>{
-      config.baseURL = 'http://localhost:3000';
       return config;
     }, (error)=>{
       this.handleError(error.message);

@@ -1,0 +1,279 @@
+@mixin title {
+  height: 40px;
+  color: #666666;
+  background-color: #fafafa;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  box-sizing: border-box;
+  span{
+    margin-left: 11px;
+  }
+}
+
+#home{
+  display: flex;
+  padding-bottom: 30px;
+  .aside-left{
+    width: 75%;
+    .view{
+      .view-title{
+        @include title();
+      }
+      .view-list{
+        height: 110px;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .view-item{
+          width: 18%;
+          position: relative;
+          .title{
+            position: absolute;
+            top: 10px;
+            left: 9px;
+            font-size: 12px;
+            color: #fff;
+          }
+          .count{
+            position: absolute;
+            font-size: 12px;
+            color: #fff;
+            right: 13px;
+            bottom: 7px;
+          }
+          img{
+            width: 100%;
+          }
+        }
+      }
+    }
+    .handle{
+      display: flex;
+      margin-top: 10px;
+      .remind{
+        flex: 1;
+        .remind-title{
+          @include title();
+        }
+        .remind-con{
+          height: 210px;
+          display: flex;
+          flex-wrap: wrap;
+          align-content: flex-start;
+          background-color: #fff;
+          .cart{
+            width: 30%;
+            height: 40%;
+            position: relative;
+            margin-left: 2.5%;
+            margin-top: 3.5%;
+            box-shadow: 0 0 7px #e1e1e1;
+            img{
+              width: 25px;
+              position: absolute;
+              top: 10px;
+              left: 11px;
+            }
+            h2{
+              color: #868686;
+              font-size: 18px;
+              position: absolute;
+              top: 13px;
+              right: 20px;
+            }
+            p{
+              font-size: 12px;
+              color: #868686;
+              position: absolute;
+              right: 7px;
+              bottom: 9px;
+            }
+          }
+        }
+      }
+      .upcoming{
+        flex: 1;
+        margin-left: 10px;
+        .upcoming-title{
+          @include title();
+          display: flex;
+          justify-content: space-between;
+          .deal-list{
+            display: flex;
+            li{
+              font-size: 12px;
+              color: #999;
+              line-height: 34px;
+              border-bottom: 3px solid transparent;
+              margin-right: 17px;
+            }
+          }
+        }
+        .upcoming-con{
+          background-color: #fff;
+          height: 210px;
+          position: relative;
+          li{
+            height: 40px;
+            margin: 0 14px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #f2f2f2;
+            .icon{
+              margin-right: 16px;
+              color: #ffca3a;
+            }
+            p{
+              font-size: 12px;
+              color: #666666;
+              width: 300px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+          }
+          .viewall{
+            position: absolute;
+            right: 10px;
+            bottom: 15px;
+            span{
+              font-size: 12px;
+              color: #666666;
+              margin-left: 14px;
+              &:nth-of-type(2){
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+    .showdata{
+      margin-top: 10px;
+      .showdata-title{
+        @include title();
+      }
+      .showdata-content{
+        height: 358px;
+        background-color: #fff;
+      }
+    }
+  }
+  .aside-right{
+    flex: 1;
+    margin-left: 10px;
+    .calendar{
+      background-color: #fff;
+      padding-bottom: 9px;
+    }
+    .record{
+      margin-top: 18px;
+      height: 470px;
+      overflow: hidden;
+      background-color: #fff;
+      .record-title{
+        height: 36px;
+        background-color: #fafafa;
+        display: flex;
+        align-items: center;
+        .item{
+          color: #868686;
+          font-size: 12px;
+          flex: 1;
+          text-align: center;
+          cursor: default;
+          span{
+            padding: 9px 18px;
+            border-bottom: 2px solid transparent;
+          }
+        }
+      }
+      .remind{
+        margin-bottom: 15px;
+        padding: 0 6px;
+        .remind-item{
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #e4e4e4;
+          margin-top: 10px;
+          .title{
+            display: flex;
+            align-items: center;
+            .icon{
+              color: #d81e06;
+            }
+            h4{
+              margin-left: 11px;
+              color: #666;
+              font-size: 12px;
+            }
+          }
+          .desc{
+            color: #666;
+            font-size: 12px;
+            margin-top: 10px;
+            margin-left: 27px;
+          }
+          .time{
+            font-size: 12px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+      .schedules{
+        margin-bottom: 15px;
+        padding: 0 6px;
+        height: 330px;
+        position: relative;
+        overflow: hidden;
+        .line{
+          position: absolute;
+          width: 1px;
+          height: 100%;
+          top: 0;
+          left: 32px;
+          background-color: #f2f2f2;
+        }
+        .schedules-item{
+          margin-top: 14px;
+          padding: 0 18px;
+          .schedules-title{
+            height: 35px;
+            display: flex;
+            align-items: center;
+            .ball{
+              width: 16px;
+              height: 16px;
+              border-radius: 50%;
+              background: #faad09;
+              z-index: 10;
+              box-shadow: 3px 3px 3px #aaaaaa;
+            }
+            .time{
+              margin-left: 18px;
+              color: #bcbcbc;
+              font-size: 12px;
+            }
+          }
+          .type{
+            font-size: 12px;
+            color: #797979;
+            margin-left: 35px;
+          }
+          .desc{
+            margin-top: 9px;
+            font-size: 12px;
+            margin-left: 35px;
+            line-height: 18px;
+            color: #797979;
+          }
+        }
+      }
+    }
+  }
+}

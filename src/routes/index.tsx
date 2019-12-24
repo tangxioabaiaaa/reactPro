@@ -3,6 +3,11 @@ import {Redirect} from 'react-router-dom'
 import {RouteConfig} from 'react-router-config'
 
 const routes: RouteConfig[] = [
+  {
+    path: '/',
+    exact: true,
+    render: ()=><Redirect to="/home"/>
+  },
   //首页
   {
     path: '/home',

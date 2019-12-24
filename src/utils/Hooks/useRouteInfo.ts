@@ -15,8 +15,6 @@ export default function useRouteInfo(){
 
   // 得到自定义的路由配置项中的path，breadcrumb
   const [{route: {path, breadcrumb}}] = matchRoutes(routes, pathname);
-  console.log(matchRoutes(routes, pathname));
-  
 
   const ids = useMemo(()=>{
     // 根据path切割得到菜单的id
