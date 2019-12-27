@@ -1,0 +1,130 @@
+#client-add{
+  border: 1px solid #e9e9e9;
+  margin-bottom: 30px;
+  .add-title{
+    height: 48px;
+    border-bottom: 1px solid #e9e9e9;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    h4{
+      font-size: 14px;
+      color: #666;
+      font-weight: bold;
+    }
+    span{
+      font-size: 13px;
+      color: #999;
+      i{
+        color: #ff3b30;
+      }
+    }
+  }
+  .content{
+    padding: 32px 40px;
+    background-color: #fff;
+    .form{
+      margin-bottom: 50px;
+      h4{
+        font-size: 14px;
+        color: #666;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      .btns{
+        width: 380px;
+        margin: 60px auto 0;
+        display: flex;
+        justify-content: space-between;
+        .btn{
+          width: 150px;
+          height: 40px;
+        }
+      }
+      .iptgroup2{
+        flex: 1;
+      }
+      .iptgroup3{
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+      }
+      .iptgroup{
+        margin-top: 25px;
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        .text-wrap{
+          width: 100%;
+          position: relative;
+          .head{
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 14px;
+          }
+          .text{
+            width: 100%;
+            height: 135px;
+            resize: none;
+            border-radius: 5px;
+            border-color: #d7d7d7;
+            padding: 13px;
+            box-sizing: border-box;
+            &::-webkit-input-placeholder{ /*WebKit browsers*/
+              color: #d7d7d7;
+            }
+          }
+          .entered{
+            position: absolute;
+            font-size: 12px;
+            color: #d7d7d7;
+            right: 23px;
+            bottom: 13px;
+          }
+        }
+        .aipt{
+          display: flex;
+          flex-direction: column;
+          width: 305px;
+          .head{
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 14px;
+            i{
+              color: #ff3b30;
+              margin-right: 5px;
+            }
+          }
+          .ipt{
+            width: 100%;
+          }
+          .selectbtn{
+            width: 100%;
+            display: flex;
+            color: #666;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+      }
+      .upload{
+        width: 356px;
+        margin-top: 25px;
+        .head{
+          font-size: 13px;
+          color: #666;
+          margin-bottom: 14px;
+          i{
+            color: #ff3b30;
+            margin-right: 5px;
+          }
+        }
+        .logo-uploader{
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
