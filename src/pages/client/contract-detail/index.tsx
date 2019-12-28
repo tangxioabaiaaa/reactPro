@@ -9,7 +9,9 @@ const ContractManage: React.FC<{}> = ()=>{
     <div className="contract-detail">
     
     <div className="status">
-      当前状态：{this.tate.status}
+
+      
+      {/* 当前状态：{state.status} */}
     </div>
     
     </div>
