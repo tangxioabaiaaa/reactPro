@@ -65,7 +65,8 @@ const ClientDetail: React.FC<{}> = ()=>{
       dataIndex: 'entityName',
       sorter: (a:any, b:any) => a.entityName[2].charCodeAt() - b.entityName[2].charCodeAt(),
       sortDirections: ['descend', 'ascend'],
-      width: '20%'
+      width: '20%',
+      align: 'right'
     },
     {
       title: '所在地区',
