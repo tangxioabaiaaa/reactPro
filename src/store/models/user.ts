@@ -39,7 +39,7 @@ export const requestUserLogin = (name:string, password:string)=>(dispatch:Dispat
 }
 
 const initialState = Map({
-  isLogin: false,
+  isLogin: true,
   userInfo: Map({
     role: 'admin'
   })

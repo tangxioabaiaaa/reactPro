@@ -22,7 +22,7 @@ const Login: React.FC<{}> = ()=>{
   // 创建ref
   const usernameRef = useRef(null!);
   const psdRef = useRef(null!);
-
+  
   // 创建记住密码判定参数
   const [record, setRecord] = useState(false);
 
@@ -30,21 +30,31 @@ const Login: React.FC<{}> = ()=>{
   useEffect(() => {
     console.log(userIsLogin);
     if(userIsLogin){
+      
+      // 记住密码的操作
+      if(record){
+        const userName:string = (usernameRef as any).current.state.value;
+        const password:string = (psdRef as any).current.state.value;
+        localStorage.setItem('userInfo', JSON.stringify({userName,password}))
+      }
       history.push('/home');
     }
   }, [userIsLogin])
 
-  // 记住密码的操作
   useEffect(() => {
+    
+    let userInfo = localStorage.getItem("userInfo");
+    if(userInfo){
+      const {userName,password} = JSON.parse(userInfo);
+      console.log((usernameRef as any));
+      (usernameRef as any).current.state.value = userName;
+      (psdRef as any).current.state.value = password;
+    }
 
     return () => {
-      const userName:string = (usernameRef as any).current.state.value;
-      const password:string = (psdRef as any).current.state.value;
-      if(record && userIsLogin){
-        localStorage.setItem('userInfo', JSON.stringify({userName,password}))
-      }
+
     };
-  })
+  },[])
 
   // 点击登录操作
   const handleAction = function handleAction(){
