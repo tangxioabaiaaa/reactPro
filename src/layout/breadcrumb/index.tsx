@@ -4,6 +4,7 @@ import RouteInfo from '../../utils/Hooks/useRouteInfo'
 
 const AppBreadcrumb: React.FC<{}> = ()=>{
   const {breadcrumb} = RouteInfo();
+  console.log(breadcrumb)
   if(!breadcrumb){
     return null;
   }

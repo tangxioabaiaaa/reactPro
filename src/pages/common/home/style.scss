@@ -228,9 +228,10 @@
       .schedules{
         margin-bottom: 15px;
         padding: 0 6px;
-        height: 330px;
+        // height: 330px;
+        height: 100%;
         position: relative;
-        overflow: hidden;
+        overflow: auto;
         .line{
           position: absolute;
           width: 1px;

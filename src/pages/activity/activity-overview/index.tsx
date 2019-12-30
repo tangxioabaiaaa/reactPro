@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import './style.scss'
 import Table1 from './children/table1'
 import Table2 from './children/table2'

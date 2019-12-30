@@ -1,7 +1,9 @@
 import React, { memo, useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import { Icon } from 'antd';
+import {Map} from 'immutable'
 const echarts = require('echarts/lib/echarts');
 require("echarts/lib/chart/line");
+require("echarts/lib/component/title");
 
 const dealList = [
   {id: 'processed', title: '待处理'},
@@ -13,32 +15,43 @@ interface propInterface {
   homeData: any
 }
 
-const WeekChart: React.FC<{}> = memo(()=>{
-
+const WeekChart: React.FC<any> = memo(({data})=>{
+  console.log(data);
+  if(!data){
+    return null;
+  }
+  
   const chartDOM = useRef<HTMLDivElement | null>(null);
+  const options = {
+    title: {
+      left: 'center',
+      text: '近一周客户增长数量',
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: data.customerdigitals,
+        type: 'line',
+        areaStyle: {}
+    }]
+  }
+
   useEffect(()=>{
     if(!chartDOM.current){
       return
     }
     const myChart = echarts.init(chartDOM.current);
-    const options = {
-      xAxis: {
-          type: 'category',
-          boundaryGap: false,
-          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-      },
-      yAxis: {
-          type: 'value'
-      },
-      series: [{
-          data: [820, 932, 901, 934, 1290, 1330, 1320],
-          type: 'line',
-          areaStyle: {}
-      }]
-    };
+    console.log(options);
+    
     myChart.setOption(options);
 
-  }, [chartDOM])
+  }, [chartDOM, options])
 
   return (
     <div className="showdata-content" ref={chartDOM}></div>
@@ -47,7 +60,8 @@ const WeekChart: React.FC<{}> = memo(()=>{
 
 const HomeView: React.FC<propInterface> = memo(({homeData})=>{
   const [dealStatus, setDealStatus] = useState('processed');
-
+  console.log(homeData);
+  
   const dealSelectAction = useCallback((id:string)=>{
     setDealStatus(id);
   }, [])
@@ -154,7 +168,7 @@ const HomeView: React.FC<propInterface> = memo(({homeData})=>{
           <span>仪表盘</span>
         </div>
         
-        <WeekChart/>
+        <WeekChart data={homeData}/>
       </div>
     </>
   )

@@ -54,7 +54,7 @@ const Table1: React.FC<{}> = memo(()=>{
     const myChart = echarts.init(table1.current);
     myChart.setOption(options);
 
-  }, [table1])
+  }, [table1, options])
 
   return (
     <div className="table-content" ref={table1}></div>

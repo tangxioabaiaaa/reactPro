@@ -20,13 +20,13 @@ const Remember: React.FC<any> = memo((props)=>{
         <li className="remind-item" key={index}>
           <div className="title">
             <Icon type="alert" theme="filled" className="icon"/>
-            <h4>普通提醒：</h4>
+            <h4>{item.title}：</h4>
           </div>
           <p className="desc">
             {item.content}
           </p>
           <div className="time">
-            <p>2019-02-13 21:32</p>
+            <p>{item.time}</p>
           </div>
         </li>
       ))
@@ -38,6 +38,7 @@ const Remember: React.FC<any> = memo((props)=>{
 
 const Schedules: React.FC<any> = memo((props)=>{
   const {data} = props;
+  
   return (
     <nav className="schedules">
     {
@@ -63,7 +64,8 @@ const Schedules: React.FC<any> = memo((props)=>{
 
 const HomeView: React.FC<propInterface> = memo(({homeData})=>{
   const [select, setSelect] = useState('remember');
-
+  console.log(homeData);
+  
   const selectAction = useCallback((val)=>{
     setSelect(val);
   }, []);

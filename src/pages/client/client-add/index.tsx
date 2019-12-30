@@ -1,10 +1,12 @@
 import React, { useCallback, useState, useRef } from 'react'
 import { Input, Button, Upload, Icon, message, Select, DatePicker } from 'antd';
 import './style.scss'
+import Api from '../../../utils/api'
+import Http from  '../../../utils/request'
 
 const { Option } = Select;
 
-const areaMenu = ['福田区','罗湖区','南山区','宝安区','龙岗区','龙华区','光明新区','坪山新区',]
+const areaMenu = ['福田区','罗湖区','南山区','宝安区','龙岗区','龙华区','光明新区','坪山新区']
 const industryMenu = ['互联网','金融','医疗','建筑','服务','其他'];
 const levelMenu = ['关键客户','主要客户','普通客户']
 
@@ -96,31 +98,61 @@ const ClientAdd: React.FC<{}> = ()=>{
     setDateVal(dateString)
   }, [])
 
-  const submitAction = useCallback(()=>{
-    const company = companyRef.current!.clearableInput.props.value;
-    const contact = contactRef.current!.clearableInput.props.value;
+  const submitAction = useCallback(async ()=>{
+    const entityName = companyRef.current!.clearableInput.props.value;
+    const legalPerson = contactRef.current!.clearableInput.props.value;
     const position = positionRef.current!.clearableInput.props.value;
-    const mobilePhone = mobilePhoneRef.current!.clearableInput.props.value;
+    const contactNumber = mobilePhoneRef.current!.clearableInput.props.value;
     const qq = qqRef.current!.clearableInput.props.value;
     const email = emailRef.current!.clearableInput.props.value;
     const wx = wxRef.current!.clearableInput.props.value;
-    const address = addressRef.current!.clearableInput.props.value;
-    const phone = phoneRef.current!.clearableInput.props.value;
-    const fax = faxRef.current!.clearableInput.props.value;
-    const url = urlRef.current!.clearableInput.props.value;
-    const introduction = textRef.current!.value;
-    const clientCode = codeRef.current!.clearableInput.props.value;
-    const remark = remarkRef.current!.clearableInput.props.value;
-    const industry = industryVal;
-    const area = areaVal;
-    const level = levelVal;
+
+    const unitAddress = addressRef.current!.clearableInput.props.value;
+    const unitPhone = phoneRef.current!.clearableInput.props.value;
+    const unitFax = faxRef.current!.clearableInput.props.value;
+    const unitUrl = urlRef.current!.clearableInput.props.value;
+    const unitIntro = textRef.current!.value;
+
+    const unitId = codeRef.current!.clearableInput.props.value;
+    const unitMark = remarkRef.current!.clearableInput.props.value;
+    const unitType = industryVal;
+    const unitArea = areaVal;
+    const unitLevel = levelVal;
     const date = dateVal;
-    const image = imageUrl;
-    if(!company || !industry || !area || !contact || !mobilePhone || !email || !address || !image || !phone || !clientCode || !level || !date){
+    const logo = imageUrl;
+    if(!entityName || !unitType || !unitArea || !legalPerson || !contactNumber || !email || !unitAddress || !logo || !unitPhone || !unitId || !unitLevel || !date){
       message.error('信息未填写完整！');
       return
     }
     // 保存信息
+    const result = await Http.post(Api.ADD_CUSTOMER,{
+      entityName,
+      legalPerson,
+      position,
+      contactNumber,
+      qq,
+      email,
+      wx,
+      unitAddress,
+      unitPhone,
+      unitFax,
+      unitUrl,
+      unitIntro,
+      unitId,
+      unitMark,
+      unitType,
+      unitArea,
+      unitLevel,
+      date,
+      // logo
+    })
+    const {data} = result;
+    if(data.code === 0){
+      message.success('新增客户成功');
+    } else {
+      message.error('新增客户失败，请重试');
+    }
+    
     
   }, [industryVal, areaVal, levelVal, dateVal, imageUrl])
 
@@ -168,8 +200,8 @@ const ClientAdd: React.FC<{}> = ()=>{
           </div>
           <div className="iptgroup">
             <div className="aipt">
-              <div className="head"><i>*</i>联系人</div>
-              <Input className="ipt" ref={contactRef} placeholder="请填写联系人" />
+              <div className="head"><i>*</i>法定代表人</div>
+              <Input className="ipt" ref={contactRef} placeholder="请填写法定代表人" />
             </div>
             <div className="aipt">
               <div className="head">职位</div>
