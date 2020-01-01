@@ -65,9 +65,9 @@ const MessageNew: React.FC<{}> = () => {
   }, [])
 
   // 文本域数据绑定事件
-  const handleChange = useCallback((ev: React.ChangeEvent<HTMLInputElement>)=>{
-    setTearVal(ev.target.value);
-  }, []);
+  // const handleChange = useCallback((ev: React.ChangeEvent<HTMLInputElement>)=>{
+  //   setTearVal(ev.target.value);
+  // }, []);
 
 
   return (
