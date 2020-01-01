@@ -1,0 +1,22 @@
+.employee-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    //    margin-bottom: 20px;
+    padding: 20px 0;
+
+    span:nth-of-type(1) {
+        color: #666;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    span:nth-of-type(2) {
+        color: #ccc;
+
+        i {
+            color: red;
+        }
+    }
+}
