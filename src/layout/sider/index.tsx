@@ -15,8 +15,23 @@ const AppSlide: React.FC<{}> = ()=>{
   }, [history])
   const {ids} = useRouteInfo();
   
+  
   return (
-    <Sider width={200} style={{ background: '#fefefe' }} className="app-slide">
+    <Sider width={180} style={{ background: '#fefefe' }} className="app-slide">
+
+      {/* <Menu
+        mode="inline"
+        defaultSelectedKeys={[ids[0]]}
+        style={{ lineHeight: '64px' }}
+      >
+        <Menu.Item key="home" onClick={()=>history.push('/home')}>
+        <span>
+        <Icon className="icon" type="home" />
+        首页
+      </span>
+        </Menu.Item>
+      </Menu> */}
+
       <Menu
         mode="inline"
         defaultSelectedKeys={[ids[1]]}
@@ -29,7 +44,7 @@ const AppSlide: React.FC<{}> = ()=>{
             key={configItem.id}
             title={
               <span>
-                <Icon type={configItem.icon} />
+                <Icon className="icon" type={configItem.icon} />
                 {configItem.title}
               </span>
             }

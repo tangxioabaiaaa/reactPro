@@ -3,9 +3,8 @@ import { Breadcrumb } from 'antd';
 import RouteInfo from '../../utils/Hooks/useRouteInfo'
 
 const AppBreadcrumb: React.FC<{}> = ()=>{
-  const {breadcrumb,path} = RouteInfo();
-  console.log(breadcrumb);
-  
+  const {breadcrumb} = RouteInfo();
+  console.log(breadcrumb)
   if(!breadcrumb){
     return null;
   }

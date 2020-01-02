@@ -1,0 +1,81 @@
+#client-detail{
+  .filter{
+    height: 130px;
+    border: 1px solid #e9e9e9;
+    background-color: #fff;
+    margin-bottom: 20px;
+    .filter-title{
+      height: 48px;
+      border-bottom: 1px solid #e9e9e9;
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+      span{
+        color: #333;
+        font-size: 14px;
+        padding: 0 18px;
+        &:nth-of-type(2){
+          color: #0079fe;
+        }
+      }
+    }
+    .filter-main{
+      display: flex;
+      align-items: center;
+      height: 81px;
+      padding-left: 29px;
+      .input{
+        margin-right: 40px;
+        display: flex;
+        align-items: center;
+        span{
+          font-size: 14px;
+          color: #666666;
+          margin-right: 15px;
+        }
+        .ipt{
+          width: 148px;
+          height: 30px;
+        }
+        .selectbtn{
+          width: 140px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+      .filter-btn{
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+        &:nth-of-type(1){
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+  .table-wrap{
+    background-color: #fff;
+    padding: 0 19px;
+    border: 1px solid #e9e9e9;
+    .table-title{
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .table-edit{
+        &>span{
+          color: #333;
+          font-size: 14px;
+          margin-right: 20px;
+        }
+      }
+      .table-btns{
+        .table-btn{
+          margin-left: 10px;
+        }
+
+      }
+    }
+  }
+}

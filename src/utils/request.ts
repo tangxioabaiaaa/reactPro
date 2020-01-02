@@ -19,7 +19,11 @@ class HttpRequest{
   }
 
   // 设置get请求别名
+<<<<<<< HEAD
   public get(url: string, params: any= {}, config: AxiosRequestConfig = {}): AxiosPromise{
+=======
+  public get(url: string, params: any = {}, config: AxiosRequestConfig = {}): AxiosPromise{
+>>>>>>> ryk
     const newConfig = this.mergeConfig(config, {params, url, method: 'GET'});
     return this.request(newConfig);
   }
@@ -44,7 +48,10 @@ class HttpRequest{
   private interceptor(instance: AxiosInstance){
     // 拦截请求
     instance.interceptors.request.use((config: AxiosRequestConfig)=>{
+<<<<<<< HEAD
       // config.baseURL = 'http://localhost:3000';
+=======
+>>>>>>> ryk
       return config;
     }, (error)=>{
       this.handleError(error.message);

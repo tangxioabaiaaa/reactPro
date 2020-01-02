@@ -1,4 +1,11 @@
 .app-slide{
   overflow-y: scroll;
   overflow-x: hidden;
+  
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+  .icon{
+    margin-right: 6px;
+  }
 }

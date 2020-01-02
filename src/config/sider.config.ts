@@ -12,6 +12,18 @@ interface SiderConfigInterface{
 
 const SiderConfig: SiderConfigInterface[] = [
   {
+    id: 'home',
+    title: '首页',
+    icon: 'home',
+    children: [
+      {
+        id: 'home',
+        title: '首页',
+        path: '/home'
+      }
+    ]
+  },
+  {
     id: 'statistics',
     title: '数据统计',
     icon: 'line-chart',
