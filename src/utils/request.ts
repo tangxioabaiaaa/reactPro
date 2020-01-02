@@ -19,14 +19,14 @@ class HttpRequest{
   }
 
   // 设置get请求别名
-  public get(url: string, config: AxiosRequestConfig = {}): AxiosPromise{
-    const newConfig = this.mergeConfig(config, {url, method: 'GET'});
+  public get(url: string, params: any= {}, config: AxiosRequestConfig = {}): AxiosPromise{
+    const newConfig = this.mergeConfig(config, {params, url, method: 'GET'});
     return this.request(newConfig);
   }
 
   // 设置post请求别名
   public post(url: string, data: any = {}, config: AxiosRequestConfig = {}): AxiosPromise{
-    const newConfig = this.mergeConfig(config, {url, method: 'POST'});
+    const newConfig = this.mergeConfig(config, {data, url, method: 'POST'});
     return this.request(newConfig);
   }
 
@@ -44,7 +44,7 @@ class HttpRequest{
   private interceptor(instance: AxiosInstance){
     // 拦截请求
     instance.interceptors.request.use((config: AxiosRequestConfig)=>{
-      config.baseURL = 'http://localhost:3000';
+      // config.baseURL = 'http://localhost:3000';
       return config;
     }, (error)=>{
       this.handleError(error.message);
